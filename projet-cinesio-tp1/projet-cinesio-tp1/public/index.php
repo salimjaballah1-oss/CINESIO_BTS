@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/../src/data/data.php';
+require_once __DIR__ . '/../src/repositories/filmRepository.php';
 require_once __DIR__ . '/../src/lib/functions.php';
+
+$films = findAllFilms();
 
 include __DIR__ . '/../src/includes/header.php';
 ?>
@@ -14,14 +16,14 @@ include __DIR__ . '/../src/includes/header.php';
     <?php foreach ($films as $film): ?>
         <div class="card">
             <div class="card-image-wrap">
-                <a href="#">
+                <a href="detail-film.php?id=<?= urlencode($film['id']) ?>">
                     <img src="<?= htmlspecialchars($film['image']) ?>" alt="Affiche de <?= htmlspecialchars($film['titre']) ?>" class="card-image">
                 </a>
                 <span class="badge-country"><?= getCountryCode($film['pays']) ?></span>
             </div>
             <div class="card-content">
                 <h3 class="card-title">
-                    <a href="#" style="text-decoration: none; color: inherit;">
+                    <a href="detail-film.php?id=<?= urlencode($film['id']) ?>" style="text-decoration: none; color: inherit;">
                         <?= htmlspecialchars($film['titre']) ?>
                     </a>
                 </h3>
@@ -34,10 +36,11 @@ include __DIR__ . '/../src/includes/header.php';
                     <?= htmlspecialchars($film['synopsis']) ?>
                 </p>
 
-                <a href="#" class="btn-primary">DÃ©tails</a>
+                <a href="detail-film.php?id=<?= urlencode($film['id']) ?>" class="btn-primary">Détails</a>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
 
 <?php include __DIR__ . '/../src/includes/footer.php'; ?>
+
