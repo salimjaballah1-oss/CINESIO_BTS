@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/../src/repositories/filmRepository.php';
 require_once __DIR__ . '/../src/lib/functions.php';
 
@@ -29,18 +29,17 @@ include __DIR__ . '/../src/includes/header.php';
                 </h3>
 
                 <div class="card-meta">
-                    <?= htmlspecialchars($film['genre']) ?> • <?= convertirDuree($film['duree']) ?>
+                    <?= htmlspecialchars($film['genre']) ?> &bull; <?= convertirDuree($film['duree']) ?>
                 </div>
 
                 <p class="card-synopsis">
                     <?= htmlspecialchars($film['synopsis']) ?>
                 </p>
 
-                <a href="detail-film.php?id=<?= urlencode($film['id']) ?>" class="btn-primary">D�tails</a>
+                <a href="detail-film.php?id=<?= urlencode($film['id']) ?>" class="btn-primary">D&eacute;tails</a>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
 
 <?php include __DIR__ . '/../src/includes/footer.php'; ?>
-
