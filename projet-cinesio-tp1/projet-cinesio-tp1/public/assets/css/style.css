@@ -469,6 +469,14 @@ body {
 .form-error {
     font-size: 0.82rem;
     color: #dc2626;
+    display: block;
+    margin-top: 0.35rem;
+}
+
+.input-error,
+.input-error:focus {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
 }
 
 .required-mark {
