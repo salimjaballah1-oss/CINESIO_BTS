@@ -46,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($erreurs)) {
         $data = [
-            'nom' => $_POST['nom'] ?? '',
-            'prenom' => $_POST['prenom'] ?? '',
             'email' => $email,
             'pseudo' => $pseudo,
             'mot_de_passe' => $motDePasse
