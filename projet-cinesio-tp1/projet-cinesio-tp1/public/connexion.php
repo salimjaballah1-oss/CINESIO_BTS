@@ -10,17 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $motDePasse = $_POST['mot_de_passe'] ?? '';
 
     if (empty($email)) {
-        $erreurs[] = "L'email est obligatoire.";
+        $erreurs['email'] = "L'email est obligatoire.";
     }
     if (empty($motDePasse)) {
-        $erreurs[] = "Le mot de passe est obligatoire.";
+        $erreurs['mot_de_passe'] = "Le mot de passe est obligatoire.";
     }
 
     if (empty($erreurs)) {
         $utilisateur = findUtilisateurByEmail($email);
 
         if ($utilisateur && password_verify($motDePasse, $utilisateur['mot_de_passe'])) {
-            // Démarrer la session si ce n'est pas déjà fait (normalement fait dans header.php)
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: index.php');
             exit;
         } else {
-            $erreurs[] = "Identifiants invalides.";
+            $erreurs['general'] = "Identifiants invalides.";
         }
     }
 }
@@ -46,14 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="inscription-card">
-        <?php if (!empty($erreurs)): ?>
+        <?php if (isset($erreurs['general'])): ?>
             <div class="alert alert-danger" role="alert">
-                <strong>Erreur :</strong>
-                <ul class="mb-0 mt-2">
-                    <?php foreach ($erreurs as $erreur): ?>
-                        <li><?php echo htmlspecialchars($erreur); ?></li>
-                    <?php endforeach; ?>
-                </ul>
+                <?= htmlspecialchars($erreurs['general']) ?>
             </div>
         <?php endif; ?>
 
@@ -61,15 +55,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-row">
                 <div class="form-group form-group-full">
                     <label for="email" class="form-label">Adresse Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required
+                    <input type="email" class="form-control <?= isset($erreurs['email']) ? 'input-error' : '' ?>" id="email" name="email" required
                         placeholder="votre@email.com" value="<?php echo htmlspecialchars($email); ?>">
+                    <?php if (isset($erreurs['email'])): ?>
+                        <span class="form-error"><?= htmlspecialchars($erreurs['email']) ?></span>
+                    <?php endif; ?>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group form-group-full">
                     <label for="mot_de_passe" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="mot_de_passe" name="mot_de_passe" required>
+                    <input type="password" class="form-control <?= isset($erreurs['mot_de_passe']) ? 'input-error' : '' ?>" id="mot_de_passe" name="mot_de_passe" required>
+                    <?php if (isset($erreurs['mot_de_passe'])): ?>
+                        <span class="form-error"><?= htmlspecialchars($erreurs['mot_de_passe']) ?></span>
+                    <?php endif; ?>
                 </div>
             </div>
 
