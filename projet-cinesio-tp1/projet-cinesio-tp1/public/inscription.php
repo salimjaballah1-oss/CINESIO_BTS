@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
 
-        <form method="POST" action="">
+        <form method="POST" action="" novalidate>
             <div class="form-row">
                 <div class="form-group form-group-full">
                     <label for="email" class="form-label">Adresse Email <span class="required">*</span></label>
