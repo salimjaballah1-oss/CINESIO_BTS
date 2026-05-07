@@ -801,3 +801,65 @@ body {
     width: 20px;
     height: 20px;
 }
+
+.nav-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+}
+
+.profil-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+
+.profil-avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.profil-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    flex: 0 0 auto;
+}
+
+.profil-avatar--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+}
+
+.profil-avatar-icon {
+    width: 28px;
+    height: 28px;
+    color: #6b7280;
+}
+
+.profil-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.profil-pseudo {
+    font-weight: 800;
+    color: #111827;
+    font-size: 1.05rem;
+}
+
+.profil-email {
+    color: #6b7280;
+    font-size: 0.9rem;
+}

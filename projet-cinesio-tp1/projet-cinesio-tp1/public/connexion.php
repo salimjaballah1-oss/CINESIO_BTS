@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['utilisateur'] = [
                 'id' => $utilisateur['id'],
-                'pseudo' => $utilisateur['pseudo']
+                'pseudo' => $utilisateur['pseudo'],
+                'photo_profil' => $utilisateur['photo_profil'] ?? null,
             ];
 
             header('Location: index.php');

@@ -28,10 +28,14 @@ $pageCourante = basename($_SERVER['PHP_SELF']);
                 <?php if (isset($_SESSION['utilisateur'])): ?>
                     <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
                     <div class="user-menu">
-                        <span class="user-pseudo">
-                            <i data-lucide="user" class="nav-icon"></i>
+                        <a href="profil.php" class="user-pseudo <?= $pageCourante === 'profil.php' ? 'active' : '' ?>" title="Mon profil">
+                            <?php if (!empty($_SESSION['utilisateur']['photo_profil'])): ?>
+                                <img class="nav-avatar" src="<?= htmlspecialchars($_SESSION['utilisateur']['photo_profil']) ?>" alt="Photo de profil">
+                            <?php else: ?>
+                                <i data-lucide="user" class="nav-icon"></i>
+                            <?php endif; ?>
                             <?= htmlspecialchars($_SESSION['utilisateur']['pseudo']) ?>
-                        </span>
+                        </a>
                         <a href="deconnexion.php" class="btn-logout" title="Déconnexion">
                             <i data-lucide="log-out"></i>
                         </a>
