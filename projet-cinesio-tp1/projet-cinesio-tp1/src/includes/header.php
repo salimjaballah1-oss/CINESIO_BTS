@@ -27,19 +27,21 @@ $pageCourante = basename($_SERVER['PHP_SELF']);
                 
                 <?php if (isset($_SESSION['utilisateur'])): ?>
                     <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
-                    <a href="#" class="user-link">
-                        <i data-lucide="user" class="nav-icon"></i>
-                        <?= htmlspecialchars($_SESSION['utilisateur']['pseudo']) ?>
-                    </a>
-                    <a href="deconnexion.php" class="logout-link">
-                        <i data-lucide="log-out" class="nav-icon"></i>
-                    </a>
+                    <div class="user-menu">
+                        <span class="user-pseudo">
+                            <i data-lucide="user" class="nav-icon"></i>
+                            <?= htmlspecialchars($_SESSION['utilisateur']['pseudo']) ?>
+                        </span>
+                        <a href="deconnexion.php" class="btn-logout" title="Déconnexion">
+                            <i data-lucide="log-out"></i>
+                        </a>
+                    </div>
                 <?php else: ?>
-                    <a href="inscription.php" class="<?= $pageCourante === 'inscription.php' ? 'active' : '' ?>">Inscription</a>
-                    <a href="connexion.php" class="<?= $pageCourante === 'connexion.php' ? 'active' : '' ?>">Connexion</a>
+                    <div class="auth-nav">
+                        <a href="inscription.php" class="nav-btn btn-signup <?= $pageCourante === 'inscription.php' ? 'active' : '' ?>">Inscription</a>
+                        <a href="connexion.php" class="nav-btn btn-login <?= $pageCourante === 'connexion.php' ? 'active' : '' ?>">Connexion</a>
+                    </div>
                 <?php endif; ?>
-                
-                <a href="#">Contact</a>
             </nav>
         </div>
     </header>

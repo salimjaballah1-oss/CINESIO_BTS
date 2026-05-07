@@ -4,6 +4,8 @@ require_once __DIR__ . '/../src/repositories/utilisateurRepository.php';
 
 $erreurs = [];
 $succes = false;
+$email = '';
+$pseudo = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');

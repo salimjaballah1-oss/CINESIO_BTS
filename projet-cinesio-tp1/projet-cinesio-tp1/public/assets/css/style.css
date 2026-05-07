@@ -724,3 +724,79 @@ body {
     }
 }
 
+
+.auth-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.nav-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-signup {
+    background-color: transparent;
+    color: #4b5563 !important;
+    border: 1px solid #d1d5db;
+}
+
+.btn-signup:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.btn-login {
+    background-color: #7c3aed;
+    color: #ffffff !important;
+    border: 1px solid #7c3aed;
+}
+
+.btn-login:hover {
+    background-color: #6d28d9;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid #e5e5e5;
+}
+
+.user-pseudo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 0.9rem;
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-logout {
+    color: #9ca3af;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-logout:hover {
+    color: #ef4444;
+}
+
+.btn-logout i {
+    width: 20px;
+    height: 20px;
+}
