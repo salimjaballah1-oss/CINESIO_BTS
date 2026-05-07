@@ -27,6 +27,7 @@ $pageCourante = basename($_SERVER['PHP_SELF']);
                 
                 <?php if (isset($_SESSION['utilisateur'])): ?>
                     <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
+                    <a href="favoris.php" class="<?= $pageCourante === 'favoris.php' ? 'active' : '' ?>">Favoris</a>
                     <div class="user-menu">
                         <a href="profil.php" class="user-pseudo <?= $pageCourante === 'profil.php' ? 'active' : '' ?>" title="Mon profil">
                             <?php if (!empty($_SESSION['utilisateur']['photo_profil'])): ?>

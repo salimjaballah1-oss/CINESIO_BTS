@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../src/repositories/filmRepository.php';
+require_once __DIR__ . '/../src/repositories/favoriRepository.php';
 require_once __DIR__ . '/../src/lib/functions.php';
 
 $id = $_GET['id'] ?? '';
@@ -22,6 +23,11 @@ if ($id === '') {
 }
 
 include __DIR__ . '/../src/includes/header.php';
+
+$isFavori = false;
+if ($film !== false && isset($_SESSION['utilisateur'])) {
+    $isFavori = isFilmFavori((int) $_SESSION['utilisateur']['id'], (int) $film['id']);
+}
 ?>
 
 <div class="detail-container">
@@ -65,7 +71,20 @@ include __DIR__ . '/../src/includes/header.php';
                     <p class="synopsis-text"><?= nl2br(htmlspecialchars($film['synopsis'])) ?></p>
                 </div>
 
-                <a href="index.php" class="btn-booking">Retour à la liste</a>
+                <div class="detail-actions">
+                    <a href="index.php" class="btn-booking">Retour à la liste</a>
+
+                    <?php if (isset($_SESSION['utilisateur'])): ?>
+                        <form method="POST" action="toggle-favori.php" class="favori-form">
+                            <input type="hidden" name="film_id" value="<?= (int) $film['id'] ?>">
+                            <input type="hidden" name="redirect" value="<?= htmlspecialchars('detail-film.php?id=' . urlencode((string) $film['id'])) ?>">
+                            <button type="submit" class="btn-favori <?= $isFavori ? 'btn-favori--active' : '' ?>">
+                                <i data-lucide="heart"></i>
+                                <?= $isFavori ? 'Retirer des favoris' : 'Ajouter aux favoris' ?>
+                            </button>
+                        </form>
+                    <?php endif; ?>
+                </div>
             </div>
         </section>
     <?php endif; ?>

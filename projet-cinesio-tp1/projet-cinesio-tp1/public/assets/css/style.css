@@ -863,3 +863,114 @@ body {
     color: #6b7280;
     font-size: 0.9rem;
 }
+
+.detail-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.favori-form {
+    display: inline-flex;
+}
+
+.btn-favori {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-favori:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 8px 18px rgba(124, 58, 237, 0.12);
+}
+
+.btn-favori i {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-favori--active {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.08);
+    color: #6d28d9;
+}
+
+.carousel-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.25rem 0.25rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 999px;
+}
+
+.carousel-card {
+    min-width: 240px;
+    max-width: 240px;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 8px 18px rgba(124, 58, 237, 0.12);
+}
+
+.carousel-btn i {
+    width: 20px;
+    height: 20px;
+}
+
+.favori-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.favori-actions .btn-primary {
+    width: auto;
+    flex: 1 1 auto;
+}
