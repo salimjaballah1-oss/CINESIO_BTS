@@ -1,4 +1,13 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['utilisateur'])) {
+    header('Location: connexion.php');
+    exit;
+}
+
 require_once __DIR__ . '/../src/repositories/filmRepository.php';
 
 $errors = [];
