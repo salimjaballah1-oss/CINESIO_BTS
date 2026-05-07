@@ -1,3 +1,9 @@
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$pageCourante = basename($_SERVER['PHP_SELF']); 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,7 +16,6 @@
 </head>
 
 <body>
-    <?php $pageCourante = basename($_SERVER['PHP_SELF']); ?>
     <header class="header">
         <div class="header-container">
             <a href="index.php" class="logo">
@@ -19,7 +24,21 @@
             </a>
             <nav class="nav-links">
                 <a href="index.php" class="<?= ($pageCourante === 'index.php' || $pageCourante === 'detail-film.php') ? 'active' : '' ?>">Catalogue</a>
-                <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
+                
+                <?php if (isset($_SESSION['utilisateur'])): ?>
+                    <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
+                    <a href="#" class="user-link">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        <?= htmlspecialchars($_SESSION['utilisateur']['pseudo']) ?>
+                    </a>
+                    <a href="deconnexion.php" class="logout-link">
+                        <i data-lucide="log-out" class="nav-icon"></i>
+                    </a>
+                <?php else: ?>
+                    <a href="inscription.php" class="<?= $pageCourante === 'inscription.php' ? 'active' : '' ?>">Inscription</a>
+                    <a href="connexion.php" class="<?= $pageCourante === 'connexion.php' ? 'active' : '' ?>">Connexion</a>
+                <?php endif; ?>
+                
                 <a href="#">Contact</a>
             </nav>
         </div>
