@@ -45,11 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="inscription-card">
-        <?php if (isset($erreurs['general'])): ?>
-            <div class="alert alert-danger" role="alert">
-                <?= htmlspecialchars($erreurs['general']) ?>
-            </div>
-        <?php endif; ?>
+
 
         <form method="POST" action="" novalidate>
             <div class="form-row">
@@ -69,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="password" class="form-control <?= isset($erreurs['mot_de_passe']) ? 'input-error' : '' ?>" id="mot_de_passe" name="mot_de_passe" required>
                     <?php if (isset($erreurs['mot_de_passe'])): ?>
                         <span class="form-error"><?= htmlspecialchars($erreurs['mot_de_passe']) ?></span>
+                    <?php endif; ?>
+                    <?php if (isset($erreurs['general'])): ?>
+                        <span class="form-error"><?= htmlspecialchars($erreurs['general']) ?></span>
                     <?php endif; ?>
                 </div>
             </div>
