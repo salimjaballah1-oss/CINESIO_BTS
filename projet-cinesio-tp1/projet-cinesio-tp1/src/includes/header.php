@@ -18,8 +18,7 @@
                 <span class="logo-text"><span class="cine">Cine</span><span class="sio">SIO</span></span>
             </a>
             <nav class="nav-links">
-                <a href="index.php" class="<?= $pageCourante === 'index.php' ? 'active' : '' ?>">Accueil</a>
-                <a href="index.php" class="<?= $pageCourante === 'detail-film.php' ? 'active' : '' ?>">Catalogue</a>
+                <a href="index.php" class="<?= ($pageCourante === 'index.php' || $pageCourante === 'detail-film.php') ? 'active' : '' ?>">Catalogue</a>
                 <a href="ajouter-film.php" class="<?= $pageCourante === 'ajouter-film.php' ? 'active' : '' ?>">Ajouter un film</a>
                 <a href="#">Contact</a>
             </nav>
